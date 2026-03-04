@@ -358,7 +358,7 @@ export default function App() {
         >
           <span className="text-[10px] tracking-[0.2em] uppercase opacity-50 mb-6">[ 05 / Instagram ]</span>
           <h2 className="text-3xl md:text-5xl lg:text-7xl font-serif font-light tracking-tight mb-8">
-            Будьте з нами у <br className="hidden md:block"/> <span className="italic text-white/40">Instagram</span>
+            Будьте з нами у <br className="hidden md:block" /> <span className="italic text-white/40">Instagram</span>
           </h2>
           <motion.a
             href="https://www.instagram.com/_flowers_with_love___?igsh=MW45YnNqc204aTBjcQ=="
@@ -374,33 +374,33 @@ export default function App() {
         </motion.div>
 
         <motion.div
-           className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-7xl mx-auto"
-           variants={staggerContainer}
-           initial="hidden"
-           whileInView="visible"
-           viewport={{ once: true, margin: "-60px" }}
+          className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-7xl mx-auto"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
         >
           {['gallery_5.png', 'gallery_2.png', 'gallery_3.png', 'gallery_6.png'].map((img, i) => (
-             <motion.a
-                key={i}
-                variants={staggerItem}
-                href="https://www.instagram.com/_flowers_with_love___?igsh=MW45YnNqc204aTBjcQ=="
-                target="_blank"
-                rel="noreferrer"
-                className="group relative aspect-square overflow-hidden bg-[#111] block"
-             >
-                <img
-                  src={`/assets/${img}`}
-                  alt={`Instagram post ${i + 1}`}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-all duration-1000 opacity-80 group-hover:opacity-100"
-                  referrerPolicy="no-referrer"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
-                   <Instagram size={32} className="text-white scale-50 group-hover:scale-100 transition-transform duration-500" />
-                </div>
-             </motion.a>
+            <motion.a
+              key={i}
+              variants={staggerItem}
+              href="https://www.instagram.com/_flowers_with_love___?igsh=MW45YnNqc204aTBjcQ=="
+              target="_blank"
+              rel="noreferrer"
+              className="group relative aspect-square overflow-hidden bg-[#111] block"
+            >
+              <img
+                src={`/assets/${img}`}
+                alt={`Instagram post ${i + 1}`}
+                className="w-full h-full object-cover group-hover:scale-110 transition-all duration-1000 opacity-80 group-hover:opacity-100"
+                referrerPolicy="no-referrer"
+                loading="lazy"
+                decoding="async"
+              />
+              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+                <Instagram size={32} className="text-white scale-50 group-hover:scale-100 transition-transform duration-500" />
+              </div>
+            </motion.a>
           ))}
         </motion.div>
       </section>
@@ -439,15 +439,6 @@ export default function App() {
             >
               <Phone size={40} className="md:size-[24px] group-hover:scale-110 transition-transform duration-500" />
               <span className="text-[10px] tracking-[0.2em] uppercase mt-1">Подзвонити</span>
-            </a>
-            <a
-              href="https://www.instagram.com/_flowers_with_love___?igsh=MW45YnNqc204aTBjcQ=="
-              target="_blank"
-              rel="noreferrer"
-              className="w-40 h-40 md:w-48 md:h-48 rounded-full border border-white/20 flex flex-col items-center justify-center gap-3 hover:bg-[#F4F0EA] hover:text-[#050505] transition-all duration-700 group"
-            >
-              <Instagram size={40} className="md:size-[24px] group-hover:scale-110 transition-transform duration-500" />
-              <span className="text-[10px] tracking-[0.2em] uppercase mt-1">Instagram</span>
             </a>
           </motion.div>
         </motion.div>
