@@ -204,55 +204,61 @@ export default function App() {
         </motion.div>
       </section>
 
-      {/* Gallery Section */}
+      {/* Instagram Section */}
       <section className="py-32 md:py-48 px-6 md:px-10 border-t border-white/10">
         <motion.div
-          className="flex flex-col md:flex-row justify-between items-start md:items-end mb-20 gap-8"
+          className="flex flex-col items-center text-center mb-20"
           variants={fadeUpVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
         >
-          <span className="text-[10px] tracking-[0.2em] uppercase opacity-50">[ 02 / Колекція ]</span>
-          <span className="text-[10px] tracking-[0.2em] uppercase opacity-50 max-w-xs text-left md:text-right">
-            Кожен букет — це унікальна історія, створена з любов'ю та увагою до деталей
-          </span>
+          <span className="text-[10px] tracking-[0.2em] uppercase opacity-50 mb-6">[ 02 / Instagram ]</span>
+          <h2 className="text-3xl md:text-5xl lg:text-7xl font-serif font-light tracking-tight mb-8">
+            Будьте з нами у <br className="hidden md:block" /> <span className="italic text-white/40">Instagram</span>
+          </h2>
+          <motion.a
+            href="https://www.instagram.com/_flowers_with_love___?igsh=MW45YnNqc204aTBjcQ=="
+            target="_blank"
+            rel="noreferrer"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="inline-flex items-center gap-3 px-8 py-4 rounded-full border border-white/20 hover:bg-[#F4F0EA] hover:text-[#050505] transition-colors duration-500 group"
+          >
+            <Instagram size={20} className="group-hover:scale-110 transition-transform duration-500" />
+            <span className="text-[10px] tracking-[0.2em] uppercase mt-1">Перейти на сторінку</span>
+          </motion.a>
         </motion.div>
 
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10"
+          className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-7xl mx-auto"
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
         >
-          {/* Column 1 */}
-          <div className="flex flex-col gap-6 md:gap-10 mt-0">
-            <motion.div variants={staggerItem} className="group relative aspect-[3/4] overflow-hidden bg-[#111]">
-              <img src="/assets/gallery_1.png" alt="Авторський букет з троянд" className="w-full h-full object-cover group-hover:scale-105 transition-all duration-1000" referrerPolicy="no-referrer" loading="lazy" decoding="async" />
-            </motion.div>
-            <motion.div variants={staggerItem} className="group relative aspect-square overflow-hidden bg-[#111]">
-              <img src="/assets/gallery_2.png" alt="Букет з піонів" className="w-full h-full object-cover group-hover:scale-105 transition-all duration-1000" referrerPolicy="no-referrer" loading="lazy" decoding="async" />
-            </motion.div>
-          </div>
-          {/* Column 2 */}
-          <div className="flex flex-col gap-6 md:gap-10 md:mt-32">
-            <motion.div variants={staggerItem} className="group relative aspect-square overflow-hidden bg-[#111]">
-              <img src="/assets/gallery_3.png" alt="Квіткова композиція" className="w-full h-full object-cover group-hover:scale-105 transition-all duration-1000" referrerPolicy="no-referrer" loading="lazy" decoding="async" />
-            </motion.div>
-            <motion.div variants={staggerItem} className="group relative aspect-[3/4] overflow-hidden bg-[#111]">
-              <img src="/assets/gallery_4.png" alt="Букет у стилі бохо" className="w-full h-full object-cover group-hover:scale-105 transition-all duration-1000" referrerPolicy="no-referrer" loading="lazy" decoding="async" />
-            </motion.div>
-          </div>
-          {/* Column 3 */}
-          <div className="flex flex-col gap-6 md:gap-10 md:mt-16">
-            <motion.div variants={staggerItem} className="group relative aspect-[3/4] overflow-hidden bg-[#111]">
-              <img src="/assets/gallery_5.png" alt="Весільний букет" className="w-full h-full object-cover group-hover:scale-105 transition-all duration-1000" referrerPolicy="no-referrer" loading="lazy" decoding="async" />
-            </motion.div>
-            <motion.div variants={staggerItem} className="group relative aspect-square overflow-hidden bg-[#111]">
-              <img src="/assets/gallery_6.png" alt="Мінімалістичний букет" className="w-full h-full object-cover group-hover:scale-105 transition-all duration-1000" referrerPolicy="no-referrer" loading="lazy" decoding="async" />
-            </motion.div>
-          </div>
+          {['gallery_5.png', 'gallery_2.png', 'gallery_3.png', 'gallery_6.png'].map((img, i) => (
+            <motion.a
+              key={i}
+              variants={staggerItem}
+              href="https://www.instagram.com/_flowers_with_love___?igsh=MW45YnNqc204aTBjcQ=="
+              target="_blank"
+              rel="noreferrer"
+              className="group relative aspect-square overflow-hidden bg-[#111] block"
+            >
+              <img
+                src={`/assets/${img}`}
+                alt={`Instagram post ${i + 1}`}
+                className="w-full h-full object-cover group-hover:scale-110 transition-all duration-1000 opacity-80 group-hover:opacity-100"
+                referrerPolicy="no-referrer"
+                loading="lazy"
+                decoding="async"
+              />
+              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+                <Instagram size={32} className="text-white scale-50 group-hover:scale-100 transition-transform duration-500" />
+              </div>
+            </motion.a>
+          ))}
         </motion.div>
       </section>
 
@@ -347,63 +353,7 @@ export default function App() {
         </motion.div>
       </section>
 
-      {/* Instagram Section */}
-      <section className="py-32 md:py-48 px-6 md:px-10 border-t border-white/10">
-        <motion.div
-          className="flex flex-col items-center text-center mb-20"
-          variants={fadeUpVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-        >
-          <span className="text-[10px] tracking-[0.2em] uppercase opacity-50 mb-6">[ 05 / Instagram ]</span>
-          <h2 className="text-3xl md:text-5xl lg:text-7xl font-serif font-light tracking-tight mb-8">
-            Будьте з нами у <br className="hidden md:block" /> <span className="italic text-white/40">Instagram</span>
-          </h2>
-          <motion.a
-            href="https://www.instagram.com/_flowers_with_love___?igsh=MW45YnNqc204aTBjcQ=="
-            target="_blank"
-            rel="noreferrer"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center gap-3 px-8 py-4 rounded-full border border-white/20 hover:bg-[#F4F0EA] hover:text-[#050505] transition-colors duration-500 group"
-          >
-            <Instagram size={20} className="group-hover:scale-110 transition-transform duration-500" />
-            <span className="text-[10px] tracking-[0.2em] uppercase mt-1">Перейти на сторінку</span>
-          </motion.a>
-        </motion.div>
 
-        <motion.div
-          className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-7xl mx-auto"
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-60px" }}
-        >
-          {['gallery_5.png', 'gallery_2.png', 'gallery_3.png', 'gallery_6.png'].map((img, i) => (
-            <motion.a
-              key={i}
-              variants={staggerItem}
-              href="https://www.instagram.com/_flowers_with_love___?igsh=MW45YnNqc204aTBjcQ=="
-              target="_blank"
-              rel="noreferrer"
-              className="group relative aspect-square overflow-hidden bg-[#111] block"
-            >
-              <img
-                src={`/assets/${img}`}
-                alt={`Instagram post ${i + 1}`}
-                className="w-full h-full object-cover group-hover:scale-110 transition-all duration-1000 opacity-80 group-hover:opacity-100"
-                referrerPolicy="no-referrer"
-                loading="lazy"
-                decoding="async"
-              />
-              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
-                <Instagram size={32} className="text-white scale-50 group-hover:scale-100 transition-transform duration-500" />
-              </div>
-            </motion.a>
-          ))}
-        </motion.div>
-      </section>
 
       {/* CTA Section */}
       <section className="py-32 md:py-48 px-6 md:px-10 border-t border-white/10 flex flex-col items-center justify-center text-center min-h-[80vh] relative">
@@ -415,7 +365,7 @@ export default function App() {
           viewport={{ once: true, margin: "-100px" }}
         >
           <motion.span variants={staggerItem} className="text-[10px] tracking-[0.2em] uppercase opacity-50 mb-12">
-            [ 06 / Замовлення ]
+            [ 05 / Замовлення ]
           </motion.span>
 
           <motion.h2
