@@ -127,6 +127,8 @@ function ScrollProgressBar() {
 
 // ─── Main App ────────────────────────────────────────────────────
 export default function App() {
+  const { scrollYProgress } = useScroll();
+
   return (
     <div className="min-h-screen bg-[#050505] text-[#F4F0EA] font-sans overflow-hidden bg-noise">
       <CustomCursor />
@@ -153,8 +155,11 @@ export default function App() {
       </header>
 
       {/* Hero Section */}
-      <section className="relative h-[100svh] flex flex-col justify-end px-6 md:px-10 pb-12 md:pb-20">
-        <div className="absolute top-0 right-0 w-full md:w-3/4 h-[75vh] md:h-screen opacity-60 md:opacity-100">
+      <section className="relative h-[100svh] flex flex-col justify-end px-6 md:px-10 pb-12 md:pb-20 overflow-hidden">
+        <motion.div
+          className="absolute top-0 right-0 w-full md:w-3/4 h-[120vh] opacity-60 md:opacity-100"
+          style={{ y: useTransform(scrollYProgress, [0, 1], ['0%', '20%']) }}
+        >
           <img
             src="/assets/hero_bg.png"
             alt="Авторський букет — Flowers with Love, Київ"
@@ -164,7 +169,7 @@ export default function App() {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/40 to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-r from-[#050505] via-transparent to-transparent" />
-        </div>
+        </motion.div>
 
         <div className="relative z-10 w-full">
           <motion.div
